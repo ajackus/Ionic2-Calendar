@@ -654,8 +654,9 @@ export class MonthViewComponent implements ICalendarComponent, OnInit, OnChanges
 
         let selectedDate = viewDate.date,
             events = viewDate.events;
-
-        if (!viewDate.disabled) {
+        
+        // NOTE #1 : We forked to comment below line
+        // if (!viewDate.disabled) {
             let dates = this.views[this.currentViewIndex].dates,
                 currentCalendarDate = this.calendarService.currentDate,
                 currentMonth = currentCalendarDate.getMonth(),
@@ -690,7 +691,7 @@ export class MonthViewComponent implements ICalendarComponent, OnInit, OnChanges
                 this.moveOnSelected = true;
                 this.slideView(direction);
             }
-        }
+        // }
 
         this.onTimeSelected.emit({selectedTime: selectedDate, events: events, disabled: viewDate.disabled});
     }
